@@ -6,7 +6,7 @@ name: Deploy to Patrick slot - Tholeninc
 on:
   push:
     branches:
-      - prod
+      - patrick
   workflow_dispatch:
 
 jobs:
