@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'Tholeninc'
           slot-name: 'prod'
-          publish-profile: ${{ secrets.AZURE_CREDENTIALS }}
+          publish-profile: ${{ secrets.THOLENINC_PROD }}
           package: .
