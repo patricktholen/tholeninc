@@ -1,12 +1,12 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy.
 # More GitHub Actions for Azure: https://github.com/Azure/actions.
 
-name: Build and deploy ASP.Net Core app to Azure Web App - Tholeninc
+name: Deploy to Patrick slot - Tholeninc
 
 on:
   push:
     branches:
-      - prod
+      - patrick
   workflow_dispatch:
 
 jobs:
@@ -38,7 +38,7 @@ jobs:
     runs-on: windows-latest
     needs: build
     environment:
-      name: 'prod'
+      name: 'patrick'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -47,11 +47,11 @@ jobs:
         with:
           name: .net-app
 
-      - name: Deploy to Azure Web App
+      - name: Deploy to Patrick slot - Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'Tholeninc'
-          slot-name: 'prod'
-          publish-profile: ${{ secrets.AZURE_CREDENTIALS }}
+          slot-name: 'patrick'
+          publish-profile: ${{ secrets.THOLENINC_PATRICK }}
           package: .
